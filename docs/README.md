@@ -10,19 +10,23 @@
 
 **(EN)** The inception of this project wasn't born out of purely geeky tech enthusiasm, but from a very specific, personal journey of growth. 
 
-I wanted to systematically revisit *The Autobiography of Morris Chang*. The life and business wisdom of this semiconductor titan is an invaluable treasure for any entrepreneur. However, all I could find were 1980s-era, scanned PDFs in Traditional Chinese—blurry, poorly formatted, and exhausting to read. When we try to touch great souls and profound business experiences, we are often blocked by the "terrible medium."
+It began with a gift of insight: a friend, someone who believed in my growth, handed me *The Autobiography of Morris Chang* and urged me to read it. The life and business wisdom of this semiconductor titan is an invaluable treasure for any entrepreneur. Yet all I could find were 1980s-era, scanned PDFs in Traditional Chinese—blurry, poorly formatted, and exhausting to read. When we try to touch great souls and profound business experiences, we are often blocked by the "terrible medium."
 
 Going a step further, I didn't just want to read this Chinese biography comfortably. As an entrepreneur navigating today's global currents, I deeply desired to **learn authentic, modern business English expressions and collaborative logic** while absorbing this wisdom. I wanted a compound reading experience: a cross-temporal business dialogue, and an intensive English deep-dive to elevate my global perspective. 
 
 I am not a traditional "tech guy" writing code from scratch. But in this AI-empowered era, you don't have to be a top-tier hacker to build tools. **Professional experience and a sharp perception of life's pain points are the true wellsprings of innovation.** Leveraging my understanding of business scenarios, I decided to embrace AI and build my own "Private Library"—transforming cold, static PDFs into vibrant knowledge.
 
+And here lies the most beautiful loop: the book came to me as a gift of knowledge from a friend. So, once I have crafted this lighter, more exquisite reading experience, **I will give it back as a gift**—a reimagined edition of the very book that opened my eyes. Knowledge, passed from one person to another, returned in a richer form. A win-win cycle of insight, gratitude, and creation.
+
 **(CN)** 这个项目的诞生，并非源于某次极客式的技术狂热，而是源于一份非常具体的、关于个人成长的真实经历。
 
-我想系统地重温与学习《张忠谋自传》。这位半导体巨擘的人生与商业智慧，对任何创业者而言都是弥足珍贵的宝藏。然而，我能找到的只有 80 年代充满“年代感”、字迹模糊、段落粘连的繁体版 PDF。当我们试图去触碰那些伟大的灵魂和深邃的商业经验时，却常常被**“糟糕的载体”**拒之门外。
+一切的起点，是一位朋友的馈赠。他把《张忠谋自传》递到我手中，郑重地推荐我读一读。这位半导体巨擘的人生与商业智慧，对任何创业者而言都是弥足珍贵的宝藏。然而，我能找到的只有 80 年代充满“年代感”、字迹模糊、段落粘连的繁体版 PDF。当我们试图去触碰那些伟大的灵魂和深邃的商业经验时，却常常被**“糟糕的载体”**拒之门外。
 
 更进一步，我不仅仅想舒服地看完这本中文传记。作为身处当前时代洪流中的创业者，我极度渴望在吸收这些商业智慧的同时，**能够学习并掌握地道的现代商业英文表达和协作逻辑**。我希望我的阅读是复合的：既是跨越时空的商业对话，也是提升国际化视野的英文精读。
 
 我不是一个传统意义上手写代码的 Tech Guy。但在如今这个 AI 赋能的时代，你不必非得是顶尖黑客才能创造工具。**专业经验和对生活痛点的感知，才是创新真正的源泉。** 凭借着对商业场景的理解与应用，我决定自己拥抱 AI，把冰冷的 PDF 变成一间属于我自己的“私人书房”。
+
+而这一切，最终指向一个最动人的闭环：**这本书，是朋友赠予我的知识礼物；当我把它重制为更轻便、更精致的读物，我愿将它作为一份新的礼物，回赠给那位带我认识这本书的人。** 知识从一个人流向另一个人，经我的双手重铸，以更丰盈的形态回归。这是一场关于洞察、感恩与创造的共赢循环。
 
 ---
 
