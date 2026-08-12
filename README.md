@@ -16,7 +16,7 @@ Going a step further, I didn't just want to read this Chinese biography comforta
 
 I am not a traditional "tech guy" writing code from scratch. But in this AI-empowered era, you don't have to be a top-tier hacker to build tools. **Professional experience and a sharp perception of life's pain points are the true wellsprings of innovation.** Leveraging my understanding of business scenarios, I decided to embrace AI and build my own "Private Library"—transforming cold, static PDFs into vibrant knowledge.
 
-And here lies the most beautiful loop: the book came to me as a gift of knowledge from a friend. So, once I have crafted this lighter, more exquisite reading experience, **I will give it back as a gift**—a reimagined edition of the very book that opened my eyes. Knowledge, passed from one person to another, returned in a richer form. A win-win cycle of insight, gratitude, and creation.
+And here lies the most beautiful loop: the book came to me as a gift of knowledge from a friend. So, once I have crafted this lighter, more exquisite reading experience, **I will give it back as a gift**—a reimagined edition of the very book that opened my eyes. Knowledge, passed from one person to another, returned in a richer form. This is a profoundly meaningful cycle of information, and the passing on of value.
 
 **(CN)** 这个项目的诞生，并非源于某次极客式的技术狂热，而是源于一份非常具体的、关于个人成长的真实经历。
 
@@ -26,7 +26,7 @@ And here lies the most beautiful loop: the book came to me as a gift of knowledg
 
 我不是一个传统意义上手写代码的 Tech Guy。但在如今这个 AI 赋能的时代，你不必非得是顶尖黑客才能创造工具。**专业经验和对生活痛点的感知，才是创新真正的源泉。** 凭借着对商业场景的理解与应用，我决定自己拥抱 AI，把冰冷的 PDF 变成一间属于我自己的“私人书房”。
 
-而这一切，最终指向一个最动人的闭环：**这本书，是朋友赠予我的知识礼物；当我把它重制为更轻便、更精致的读物，我愿将它作为一份新的礼物，回赠给那位带我认识这本书的人。** 知识从一个人流向另一个人，经我的双手重铸，以更丰盈的形态回归。这是一场关于洞察、感恩与创造的共赢循环。
+而这一切，最终指向一个最动人的闭环：**这本书，是朋友赠予我的知识礼物；当我把它重制为更轻便、更精致的读物，我愿将它作为一份新的礼物，回赠给那位带我认识这本书的人。** 知识从一个人流向另一个人，经我的双手重铸，以更丰盈的形态回归。这是一个非常有意义的信息的循环，和价值的传递。
 
 ---
 
