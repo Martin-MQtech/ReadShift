@@ -4,67 +4,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <!-- 引入 Tailwind CSS 让排版瞬间现代化 -->
+    
+    <!-- 字体系统: 书籍级衬线体 + 现代无衬线标题 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js 交互 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        // 纸感书籍色彩体系 (Journal/Book Design)
+                        paper: '#faf8f3',      // 米白纸感底
+                        ink: '#1c1917',        // 墨黑正文
+                        inkSoft: '#44403c',    // 次级文字
+                        inkMute: '#78716c',    // 弱化文字
+                        rule: '#e7e0d3',       // 分隔线
+                        accent: '#9a3412',     // 陶土橙 (点睛)
+                        accentSoft: '#fed7aa', // 浅橙
+                        deep: '#292524',       // 深色块
+                    },
+                    fontFamily: {
+                        serif: ['"Source Serif 4"', 'Georgia', 'Songti SC', 'SimSun', 'serif'],
+                        sans: ['"IBM Plex Sans"', 'PingFang SC', 'Hiragino Sans GB', 'sans-serif'],
+                    },
                     typography: {
                         DEFAULT: {
                             css: {
-                                maxWidth: '100%',
-                                h1: { color: '#0f172a', fontWeight: '800' },
-                                a: { color: '#2563eb', '&:hover': { color: '#1d4ed8' } },
-                                blockquote: { borderLeftColor: '#3b82f6', backgroundColor: '#f8fafc', padding: '1rem', fontStyle: 'normal' },
-                                table: { width: '100%', tableLayout: 'fixed' },
-                                th: { textAlign: 'left', backgroundColor: '#f1f5f9', padding: '0.75rem' },
-                                td: { padding: '0.75rem', verticalAlign: 'top', borderBottomWidth: '1px' }
+                                maxWidth: 'none',
+                                color: '#1c1917',
+                                fontSize: '1.125rem',
+                                lineHeight: '1.9',
+                                // 经典 Tschichold 比例版心: 页边距 2:3:4:6
+                                h1: { color: '#1c1917', fontWeight: '800', letterSpacing: '-0.02em' },
+                                h2: { color: '#1c1917', fontWeight: '700', letterSpacing: '-0.01em' },
+                                h3: { color: '#1c1917', fontWeight: '700' },
+                                strong: { color: '#1c1917', fontWeight: '700' },
+                                blockquote: {
+                                    borderLeftColor: '#9a3412',
+                                    backgroundColor: '#f5f0e6',
+                                    padding: '1.25rem 1.5rem',
+                                    fontStyle: 'normal',
+                                    borderRadius: '0.25rem',
+                                    color: '#44403c',
+                                },
+                                'blockquote p:first-of-type::before': { content: 'none' },
+                                'blockquote p:last-of-type::after': { content: 'none' },
+                                hr: { borderColor: '#e7e0d3', marginTop: '3rem', marginBottom: '3rem' },
+                                a: { color: '#9a3412', textDecoration: 'underline', textUnderlineOffset: '3px' },
+                                'ul > li::marker': { color: '#9a3412' },
+                                'ol > li::marker': { color: '#9a3412', fontWeight: '700' },
+                                table: { width: '100%', tableLayout: 'auto' },
+                                th: { backgroundColor: '#f5f0e6', color: '#1c1917', textAlign: 'left', padding: '0.75rem 1rem', fontWeight: '700', borderBottom: '1px solid #d6cdbc' },
+                                td: { padding: '0.85rem 1rem', verticalAlign: 'top', borderBottom: '1px solid #ece5d8', color: '#44403c' },
                             },
                         },
                     },
                 },
             },
-            plugins: [
-                // 自动加载 official typography 插件以极佳渲染 markdown 输出
-                function({ addVariant }) {
-                    addVariant('prose', '& > *');
-                }
-            ],
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            /* 专门为我们的双语表格定制造型：左中右对比，右侧英文高亮 */
-            .bilingual-table table { @apply w-full border-collapse shadow-sm rounded-lg hidden md:table; }
-            .bilingual-table th { @apply bg-slate-800 text-white font-semibold; }
-            .bilingual-table td:nth-child(1) { @apply w-1/2 pr-4 border-r border-slate-200 text-slate-700 leading-loose; }
-            .bilingual-table td:nth-child(2) { @apply w-1/2 pl-4 text-slate-900 font-medium leading-loose text-lg font-serif; }
-            
-            /* 为商业词卡 (Cheat Sheet) 设定悬浮交互面板感 */
-            .cheat-sheet-card { @apply my-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl shadow-inner relative overflow-hidden; }
-            .cheat-sheet-card::before { content: ""; @apply absolute top-0 left-0 w-1 h-full bg-blue-500; }
+    
+    <style>
+        /* 首字下沉 (Drop Cap) —— 经典书籍排版元素 */
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 4.2em;
+            line-height: 0.85;
+            padding-right: 0.12em;
+            padding-top: 0.08em;
+            font-weight: 800;
+            color: #9a3412;
+            font-family: 'Source Serif 4', Georgia, serif;
+        }
+        
+        /* 装饰分隔符 (Ornament Divider) */
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5rem auto;
+            max-width: 24rem;
+            color: #9a3412;
+        }
+        .ornament::before, .ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #d6cdbc;
+        }
+        
+        /* 双语表格: 左右分栏书籍式排版 */
+        .bilingual-table table { width: 100%; border-collapse: collapse; margin: 1.75rem 0; }
+        .bilingual-table tr { border-bottom: 1px solid #ece5d8; }
+        .bilingual-table th { display: none; }
+        .bilingual-table td { padding: 1.25rem 0.5rem; vertical-align: top; }
+        .bilingual-table td:nth-child(1) { 
+            color: #44403c; 
+            font-size: 1.05rem; 
+            line-height: 1.9;
+            border-right: 1px solid #ece5d8;
+        }
+        .bilingual-table td:nth-child(2) { 
+            color: #1c1917; 
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.1rem; 
+            line-height: 1.85;
+            padding-left: 2rem;
+        }
+        
+        /* 互动词汇: 点击弹出知识窗 */
+        .interactive-term {
+            cursor: pointer;
+            color: #9a3412;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: #fed7aa;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            padding: 0 2px;
+            border-radius: 3px;
+            transition: all 0.15s ease;
+        }
+        .interactive-term:hover {
+            background: #fed7aa33;
+            color: #7c2d12;
+        }
+        
+        /* 书眉 (Running Head) */
+        .running-head {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #78716c;
+        }
+        
+        /* 页面淡入 */
+        .book-fade {
+            animation: bookFade 0.8s ease both;
+        }
+        @keyframes bookFade {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-[#fcfcfc] text-slate-800 antialiased font-sans selection:bg-blue-200">
+
+<body class="bg-paper text-ink antialiased font-sans selection:bg-accentSoft selection:text-ink">
     
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-slate-200">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="font-black text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">ReBook Engine</div>
-            <div class="text-sm text-slate-500 font-medium font-mono"><%= current_mode %></div>
+    <!-- ═══════════ 页眉: 书眉 + 状态 ═══════════ -->
+    <nav class="sticky top-0 z-50 bg-paper/85 backdrop-blur-md border-b border-rule">
+        <div class="max-w-3xl mx-auto px-6 py-3.5 flex justify-between items-center">
+            <span class="running-head">ReBook · 私人书房</span>
+            <span class="running-head flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                <%= current_mode %>
+            </span>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-4 py-12 md:py-20">
-        <article class="prose prose-slate prose-lg md:prose-xl lg:prose-2xl mx-auto bilingual-table">
+    <!-- ═══════════ 扉页 (Title Page) ═══════════ -->
+    <header class="max-w-3xl mx-auto px-6 pt-20 pb-16 text-center book-fade">
+        <p class="running-head mb-6">AI-Powered Reading Redefined</p>
+        <h1 class="font-serif text-5xl md:text-6xl font-extrabold text-ink tracking-tight mb-4"><%= title %></h1>
+        <div class="ornament">✦</div>
+        <p class="font-serif text-lg text-inkSoft italic max-w-xl mx-auto leading-relaxed">
+            "源起于文本，想象于无限。"
+        </p>
+    </header>
+
+    <!-- ═══════════ 正文: 书页版心 (Tschichold 比例) ═══════════ -->
+    <main x-data="{ slideOverOpen: false, activeTerm: '', activeMeaning: '', activeContext: '' }" 
+          @keydown.escape.window="slideOverOpen = false">
+        
+        <article class="max-w-3xl mx-auto px-6 pb-24 prose prose-lg font-serif bilingual-table">
             <%- body_content %>
         </article>
+        
+        <!-- 互动知识侧边栏 (Slide-over) -->
+        <template x-teleport="body">
+            <div x-show="slideOverOpen" class="fixed inset-0 z-[99] flex justify-end" style="display:none;"
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition ease-in duration-200"
+                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                <div @click="slideOverOpen = false" class="absolute inset-0 bg-deep/40 backdrop-blur-sm"></div>
+                <div class="relative w-full max-w-md h-full bg-paper shadow-2xl p-8 flex flex-col border-l border-rule"
+                     x-transition:enter="transform transition ease-in-out duration-300"
+                     x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+                     x-transition:leave="transform transition ease-in-out duration-300"
+                     x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+                    <button @click="slideOverOpen = false" class="absolute top-6 right-6 text-inkMute hover:text-ink transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                    <p class="running-head mb-2">Deep Dive Extractor</p>
+                    <h2 class="font-serif text-3xl font-extrabold text-ink mb-6" x-text="activeTerm"></h2>
+                    <div class="flex-1 overflow-y-auto space-y-6">
+                        <div class="bg-[#f5f0e6] rounded-lg p-6 border border-rule">
+                            <p class="font-sans text-xs font-bold text-accent uppercase tracking-wider mb-2">💡 概念释义</p>
+                            <p class="font-serif text-lg text-inkSoft leading-relaxed" x-text="activeMeaning"></p>
+                        </div>
+                        <div>
+                            <p class="font-sans text-xs font-bold text-inkMute uppercase tracking-wider mb-3 pb-2 border-b border-rule">🔗 背景延伸</p>
+                            <p class="font-serif text-inkSoft leading-loose" x-html="activeContext"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
     </main>
 
-    <footer class="mt-20 border-t border-slate-200 bg-slate-50 py-10">
-        <div class="max-w-5xl mx-auto px-4 text-center text-slate-500 text-sm">
-            <p>Generated by ReBook | Powered by AI & Human Intuition</p>
+    <!-- ═══════════ 页脚: 尾花 (Colophon) ═══════════ -->
+    <footer class="border-t border-rule bg-[#f5f0e6]/60 py-14">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="ornament">❖</div>
+            <p class="font-serif text-inkMute italic">万物皆可重塑，期待有趣的灵魂在此相遇。</p>
+            <p class="running-head mt-6">Generated by ReadShift Engine · Text is the Genesis</p>
         </div>
     </footer>
 </body>
