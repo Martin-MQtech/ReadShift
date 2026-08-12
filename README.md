@@ -112,7 +112,7 @@ If you are someone who **loves reading, seeks continuous growth, and understands
 **源起于文本，想象于无限。**
 ### 🌌 The Ultimate Vessel: ReadShift Desktop (终极内容容器)
 
-*The product output is no longer a static file, but a portable, interactive web application functioning entirely offline.*
+*The product output is no longer a disjointed set of files, but a single, self-contained interactive executable (Standalone App).*
 
 很多传统的阅读工具满足于生成一份 EPUB 或 PDF，但**“ReadShift 引擎”产出的，本质上是一个带有完整前端交互的独立微型网站（Micro-Site / Portable App）。**
 
