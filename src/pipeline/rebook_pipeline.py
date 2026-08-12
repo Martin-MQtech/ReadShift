@@ -70,8 +70,37 @@ def call_llm(system_prompt: str, user_content: str, model: str = "auto") -> str:
     model_name = os.getenv("LLM_MODEL", model)
     api_key = os.getenv("LLM_API_KEY", "")
     
+    # 自动发现 Zenmux 网关凭据 (zcode 生态)
+    if not api_key:
+        try:
+            import json
+            cfg = json.load(open(os.path.expanduser("~/.zcode/v2/config.json")))
+            z = cfg.get("provider", {}).get("zenmux", {})
+            if z.get("options", {}).get("apiKey"):
+                api_key = z["options"]["apiKey"]
+                base_url = z["options"].get("baseURL", "https://zenmux.ai/api/v1")
+                provider = "zenmux"
+                print(f"🔌 已自动发现 Zenmux 网关: {base_url}")
+        except Exception:
+            pass
+    
     if not api_key:
         raise ValueError("❌ 缺少 LLM_API_KEY 环境变量！请配置你的 API 密钥")
+    
+    # Zenmux 网关 (OpenAI 兼容, 免费/低成本模型聚合)
+    if provider == "zenmux":
+        base_url = os.getenv("LLM_BASE_URL", "https://zenmux.ai/api/v1")
+        from openai import OpenAI
+        client = OpenAI(api_key=api_key, base_url=base_url)
+        resp = client.chat.completions.create(
+            model=model_name,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_content},
+            ],
+            temperature=0.7,
+        )
+        return resp.choices[0].message.content
     
     # OpenAI 兼容接口 (覆盖 deepseek/qwen/glm 等大多数国内模型)
     if provider in ("openai", "deepseek", "qwen", "glm"):
