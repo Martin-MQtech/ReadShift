@@ -41,19 +41,40 @@ ReBook is not just a format converter; it is the infrastructure for a **Secondar
    Through curated Prompt Matrices, the LLM acts as your native editor, rewriting dated text into elegant, *Harvard Business Review*-style modern English. The paragraph-by-paragraph alignment elevates reading into an immersive language learning experience.
 
 3. **Infinite Fronts (二次创作引擎，释放无尽想象):** 
-   Once the textual origin is secured and structured, its potential becomes infinite. 
-   - We might start with basic EPUBs for undistracted reading.
-   - We advance to **Interactive HTMLs**, injecting AI-generated charts, mind maps, and interactive term glossaries.
-   - Ultimately, because we possess the refined, structured text, it can seamlessly be transformed by AIGC into Audiobooks, cinematic visual essays, or fully personalized micro-apps. The output formats are left with boundless imagination, because the source material is universally solid.
+   Once the textual origin is secured and structured, its potential becomes infinite. Because we possess the refined, structured text, it can seamlessly be transformed by AIGC into interactive HTMLs, Audiobooks, cinematic visual essays, or fully personalized micro-apps. The output formats are left with boundless imagination, because the source material is universally solid.
+
+---
+
+## 🏗 Architecture & Methodology: The Tiered Orchestration | 架构与方法论：分层编排的智慧
+
+**(EN)** Since we are "Building in Public," we must not only open-source our ideas but also our **design methodology**. 
+
+In the AI era, models will constantly grow stronger and cheaper, but there will always be a spectrum from the "highly advanced and expensive" to the "economical and efficient." It is a fundamental engineering and business insight to orchestrate them correctly—not just for cost, but for **structural elegance and system scalability**.
+
+We adopt a **Tiered Pipeline (大小模型分层协作机制)**:
+*   **The Blue-Collar Tier (“蓝领劳模层”):** We delegate the heavy lifting—OCR extraction, noise reduction, and basic formatting—to robust local tools or rapid, economical thin models. They process the massive, dirty data rapidly.
+*   **The Chief Editor Tier (“灵魂主编层”):** Only for the ultimate layer of value creation—contextual bilingual rewriting, stylistic translation, and deep knowledge extraction—do we engage the most advanced, high-IQ models. 
+
+This is the essence of modern AI architecture: letting every model do what it does best.
+
+**(CN)** 既然是“公开构建（Build in Public）”，我们不仅要开源我们的代码和理念，更要开源我们的**设计方法与系统思考**。
+
+在架构设计上，我们将 AI 的使用做出了清晰的划分。未来的大模型一定会越来越强，成本也会越来越低。但在任何时代，永远都会存在“最顶尖昂贵的模型”与“经济普及的模型”。这绝不仅仅是为了省钱，而是关于**系统架构的优雅与合理性**。
+
+我们坚决避免“将所有任务一股脑抛给最强大模型”的暴力解法，而是精心设计了**“大小模型协作的分层管线 (Tiered Pipeline)”**：
+*   **“搬砖”劳模层：** 像 OCR 图片提取、错别字校对、繁简转换等基础数据清洗的“脏活累活”，全部交由本地开源工具或高并发的小参数量模型完成。它们快速、稳定。
+*   **“灵魂”主编层：** 而对于将中文重塑为《哈佛商业评论》体、实现段落级双语对齐排版、提炼高阶商业词汇卡片（Cheat Sheet）这类产生核心溢价的“二创能力”，我们保留给最高阶的大语言模型去完成。
+
+让天才去创造，让劳模去搬砖。这是 AI 工程时代，项目主理人必须具备的第一层方法论。
 
 ---
 
 ## 🛠 Features Matrix | 核心功能矩阵
 
-* 🔍 **Contextual OCR Correction (精准 OCR 语境矫正):** Beyond simple image recognition, it uses LLM context awareness to patch broken scans and typos, restoring the text to its pure original state.
-* 📖 **Bilingual Magic (双语对照自动排版):** Precisely segments narrative and business discourse logic, generating side-by-side or top-bottom bilingual layouts without breaking your train of thought.
-* ✍️ **Style Prompt Matrix (高阶语言重写):** Built-in prompts for "Business Biography," "Academic Analysis," or "Modern Native," transforming foreign or dated text into contemporary, high-level expressions.
-* 🌐 **Dynamic Media Genesis (从源头到无限媒介):** Automatically leverages AI tools to inject contextual illustrations, structured mind maps, and interactive glossary hover-cards, turning passive reading into a dynamic knowledge exploration engine.
+* 🔍 **Contextual OCR Correction:** Uses tier-1 fast models to patch broken scans and typos, restoring the text to its pure original state.
+* 📖 **Bilingual Magic:** Precisely segments narrative and business discourse logic, generating side-by-side or top-bottom bilingual layouts without breaking your train of thought.
+* ✍️ **Style Prompt Matrix:** Built-in prompts for "Business Biography," "Academic Analysis," or "Modern Native," transforming foreign or dated text into contemporary, high-level expressions.
+* 🌐 **Dynamic Media Genesis:** Automatically leverages AI tools to inject contextual illustrations, structured mind maps, and interactive glossary hover-cards, turning passive reading into a dynamic knowledge exploration engine.
 
 ---
 
@@ -72,7 +93,7 @@ ReBook is not just a format converter; it is the infrastructure for a **Secondar
 **(EN)** A great product that transcends cycles is never just a pile of code; it is a **living, breathing, growing organism.** 
 Through "Build in Public," we operate this open-source project with the vision and structure of an agile startup:
 * **Product & Vision (CEO):** Holding the fundamental truth that *all premium content stems from text*, steering the project to ensure we capture the purest data origin while leaving the output formats infinitely open.
-* **R&D:** Relentlessly perfecting the "Pure Origin" extraction logic while aggressively exploring how new tech (AIGC, interactive HTML) can push the boundaries of output formats.
+* **R&D:** Relentlessly perfecting the extraction logic and the "Tiered Model Orchestration," exploring how new tech can push the boundaries of output formats.
 * **Marketing:** Telling the story behind the project, taking the philosophy of "knowledge reinvention" to global readers.
 * **Operations:** Fostering a global ecosystem where every Issue and PR is a collision of minds.
 
@@ -80,9 +101,9 @@ If you are someone who **loves reading, seeks continuous growth, and understands
 
 **(CN)** 一个能够穿越周期的好产品，绝对不仅仅是一堆堆砌的代码，它是一个**有血有肉、持续生长的生命体**。
 我们在公开构建（Build in Public）的过程中，正以“敏捷创业团队”的编制和视角运作这个开源项目：
-* **Product & Vision (CEO)**：坚守“一切高级内容源于最简单的文字”这一底层认知。我们所做的一切，都是为了对故事进行二次创作，把创作的出口形式留出足够的无限想象空间。
-* **R&D (技术探索)**：死磕把杂乱数据提纯为“结构化数据源”这一核心，并不断拓展其向多样化媒介载体输出的边界。
-* **Marketing (传播与链接)**：讲述代码背后的故事，将这种重塑知识体系的理念传递给全球需要它的角落。
+* **Product & Vision (CEO)**：坚守“一切高级内容源于最简单的文字”这一底层认知。把创作的出口留出充分的想象空间。
+* **R&D (技术探索)**：死磕把杂乱数据提纯为准结构化数据，并用“大小模型协作机制”探索技术效能的边界。
+* **Marketing (传播与链接)**：讲述代码背后的故事，将这种重塑知识体系的理念与系统架构方法论一起，传递给全球同路人。
 * **Operations (社区与生态)**：建立一个无国界的正向场域，迎接每一次思维碰撞。
 
 如果您也是一位**热爱阅读、持续进阶、并深知洞悉商业底层逻辑之魅力的同路人**，这便是我们链接的起点。欢迎您来到这里探讨、指正，或者 Fork 过去，重塑那部激荡过您的经典。
