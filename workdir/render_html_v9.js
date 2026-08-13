@@ -28,7 +28,8 @@ const pageRangeArg = argVal('--page-range', '');
 const outFileArg = argVal('--out', '');
 const chapterArg = argVal('--chapter', '');
 const chaptersArg = argVal('--chapters', ''); // 多章合成：逗号分隔章号，如 --chapters 1,2,3
-let fullDir = path.join(__dirname, '..', 'output', 'full');
+const fullDirArg = argVal('--full-dir', '') || argVal('--input', '');
+let fullDir = fullDirArg ? path.resolve(process.cwd(), fullDirArg) : path.join(__dirname, '..', 'output', 'full');
 let outPath = outFileArg
     ? path.resolve(process.cwd(), outFileArg)
     : path.join(__dirname, '..', 'output', 'preview_book.html');
