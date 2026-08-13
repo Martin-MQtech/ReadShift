@@ -111,3 +111,30 @@ src/templates/
 4. Harvard Business Review —— 信息层级、图表体系
 5. gzh-design 主题库（本机 skills）—— 公众号排版语言
 6. Tailwind CSS Typography —— Web 排版基建
+
+---
+
+## ⚡ High-Throughput Cloud Multi-Agent Orchestration for Long Books (大长篇图书云端多代理超高吞吐架构)
+
+### 1. 痛点分析：大长篇图书的“串行泥潭”
+传统电子书处理在面对 300~1000+ 页的巨著（如《罗马帝国衰亡史》、各类技术巨著、传记全集）时，单线程串行扫描与 LLM 调用面临三大致命痛点：
+- **时间成本高昂**：单页平均 15-30 秒，1000 页需要 5-10 小时。
+- **本地资源锁死**：高频内存占用、图像渲染导致本地开发机卡顿崩溃。
+- **上下文溢出与断连风险**：长串行链路中一旦发生网络波动或限流，极难做断点续传。
+
+### 2. 解决方案：云端多代理群射架构 (Cloud Multi-Agent Swarm)
+利用 Google / Antigravity 体系倡导的**云端算力与异步多代理解耦模式**，我们将“大长篇图书”处理升维为“云端集群并发任务”：
+
+```
+                    ┌──► Sub-Agent 1 (Pages 1 - 100)   ──► Gemini Flash (Tier1) + Agnes (Tier2) ──┐
+                    ├──► Sub-Agent 2 (Pages 101 - 200) ──► Gemini Flash (Tier1) + Agnes (Tier2) ──┤
+Master Orchestrator ┼──► Sub-Agent 3 (Pages 201 - 300) ──► Gemini Flash (Tier1) + Agnes (Tier2) ──┼──► Auto-Assembler (render_html_v6.js) ──► preview_book.html
+                    ├──► ...                                                                      │
+                    └──► Sub-Agent N (Pages N*100 - MAX)─► Gemini Flash (Tier1) + Agnes (Tier2) ──┘
+```
+
+#### 核心优势：
+1. **本地零压力 (Zero Local Overhead)**：本地仅负责任务分发与主卡片装配，把高频 API 交互与文本清洗全部压到云端 Agent 宿主环境。
+2. **弹性扩展 (Elastic Scaling)**：无论书长 100 页还是 1000 页，只需将 Chunk 区间缩短并扩展子代理数量（如 10 个子代理同时开火），处理时间恒定控制在数分钟内。
+3. **容错与断点保护 (Fault Tolerance)**：每个子代理独立维护自己的文件块，单个子代理失败不影响全局，极易自动重试。
+4. **极致性价比 (Cost-Effective Architecture)**：结合 Gemini 3.6 Flash 与 Agnes 2.5 Flash 的免费/低成本 API 优势，实现大长篇图书的零成本批量升维。

@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "baseline": "golden-v1",
+  "status": "candidate_pending_revalidation",
+  "inherits": "project.json",
+  "inheritance_model": {
+    "chapter_1": "first reference implementation",
+    "chapter_2": "independent implementation informed by accepted Chapter 1 standards",
+    "chapters_3_and_4": "may start only after Chapters 1 and 2 are both accepted and form the shared baseline",
+    "manual_rule": "one L2 manual per chapter; inherit standards without copying chapter-specific facts"
+  },
+  "renderer": "workdir/render_html_v9.js",
+  "qa": "workdir/qa_gate_v3.py",
+  "acceptance": {
+    "required_qa_version": "3.1",
+    "fixture_tests_required": true,
+    "desktop_browser_required": true,
+    "mobile_browser_required": true,
+    "console_errors_allowed": 0,
+    "external_cdns_allowed": 0,
+    "duplicate_deliverables_allowed": 0
+  },
+  "chapters": [
+    {
+      "id": 1,
+      "status": "candidate",
+      "page_start": 2,
+      "page_end": 45,
+      "source_file_count": 23,
+      "expected_images": 4,
+      "expected_subsections": 12,
+      "requires_preface_navigation": true,
+      "output_sha256": null,
+      "accepted_at": null
+    },
+    {
+      "id": 2,
+      "status": "candidate",
+      "page_start": 46,
+      "page_end": 63,
+      "source_file_count": 18,
+      "expected_images": 1,
+      "expected_subsections": 15,
+      "requires_preface_navigation": false,
+      "output_sha256": null,
+      "accepted_at": null
+    }
+  ],
+  "content_contract": {
+    "main_flow": "strict_zh_then_en",
+    "consecutive_translation_blocks_allowed": false,
+    "one_zh_to_multiple_en_allowed": false,
+    "invented_titles_or_metadata_allowed": false,
+    "secondary_content_must_be_subordinate": true,
+    "duplicate_bare_text_and_zh_allowed": false
+  },
+  "navigation_contract": {
+    "header_left": "☰ 目录",
+    "header_center": "源起于文本，想象于无限",
+    "header_right": "ReadShift · 私人书房",
+    "bottom_right": "↑ 顶部",
+    "body_chapter_return_bars_allowed": false,
+    "native_javascript_only": true
+  },
+  "production_agent_contract": {
+    "input": [
+      "project.json chapter entry",
+      "target chapter 执行手册.md",
+      "explicit assigned page list",
+      "this golden contract after status becomes accepted"
+    ],
+    "output": [
+      "changes only in assigned source files and images",
+      "chapter manual change-log entry",
+      "QA evidence for the canonical HTML"
+    ],
+    "must_not_modify": [
+      "project.json",
+      "standards/golden-v1.json",
+      "执行手册.md",
+      "src/templates/template.ejs",
+      "workdir/render_html_v9.js",
+      "workdir/qa_gate_v3.py"
+    ],
+    "stop_and_escalate_on": [
+      "source evidence conflict",
+      "uncertain title or missing page",
+      "renderer or template defect",
+      "QA false positive or false negative",
+      "cross-chapter standard change"
+    ]
+  }
+}

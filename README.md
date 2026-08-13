@@ -127,3 +127,23 @@ If you are someone who **loves reading, seeks continuous growth, and understands
 3. **向独立 App 的升维**：如果想更进一步，借助当下成熟的打包工具（如 Tauri、Electron 或 PWA 技术），只需一行代码，这个基于 Web 技术的压缩包，瞬间就能被封装成带独立图标、常驻于 Mac/Windows 上的专属桌面阅读 App。
 
 一切绚丽的呈现，皆因我们在流水线开端牢牢抓住了最纯粹的三层数据（原文、双语重塑、外挂知识抽屉）。
+
+---
+
+## ⚡ Multi-Agent Cloud Pipeline Methodology | 云端多代理并行管线方法论
+
+**(EN)** For large-scale book processing (hundreds of pages with heavy OCR, image extraction, and multi-tier LLM rewrites), running serially on a single thread easily exhausts local resources and causes bottlenecks.
+
+We pioneered a **Cloud Multi-Agent Distributed Pipeline**:
+1. **Chunked Processing (分块并发):** The entire book (126 pages) is partitioned into N non-overlapping page range chunks (e.g., 1-30, 31-60, 61-90, 91-126).
+2. **Cloud Delegation (云端解耦):** Sub-agents are dispatched asynchronously to execution environments, keeping the local master lightweight and responsive.
+3. **Multi-Model Orchestration (双引擎协作):** Each chunk agent invokes **Gemini 3.6 Flash** for ultra-fast OCR noise reduction (Tier 1) and **Agnes 2.5 Flash** for Isaacson-style modern business English rewriting (Tier 2/3).
+4. **Incremental Auto-Assembly (增量全量装配):** Completed page chunks trigger `render_html_v6.js` in real-time, streaming new content into `output/preview_book.html`.
+
+**(CN)** 对于上百页规模的大型电子书二创（包含复杂的 OCR 粗洗、历史插图提取与多层 LLM 重塑），在本地单线程跑卷会大量消耗本地计算资源并拖慢交付速度。
+
+我们沉淀并开源了 **“云端多代理分布式管线 (Cloud Multi-Agent Distributed Pipeline)”** 方法论：
+1. **分块并发切片**：全书 126 页被自动分割为 4 个互不干扰的独占页码区间（1-30页、31-60页、61-90页、91-126页）。
+2. **本地与云端解耦**：调度 4 路云端子代理（Sub-agents）在后台宿主环境并行“开炮”，本地主进程保持轻量敏捷。
+3. **双免费引擎协同**：子代理同时调度 **Gemini 3.6 Flash** 秒级完成 Tier 1 文本粗洗与广告水印抹除，调度 **Agnes 2.5 Flash** 完成 Tier 2 艾萨克森风格的高阶商务英文重塑。
+4. **流式增量装配**：子代理每完成一页处理，即自动触发渲染脚本更新 `output/preview_book.html`，实现全量双语阅读 App 的流式装配。
