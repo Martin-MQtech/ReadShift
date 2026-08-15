@@ -1,149 +1,188 @@
-# ReBook: AI-Powered Reading Redefined | 用 AI 重塑阅读，连接智慧与成长的“私人书房”
+# ReadShift: AI-Powered Knowledge Architecture & Publishing-Grade Engine
+# 用 AI 重塑阅读 · 连接商业智慧与出版级工程的开源二次创作引擎
 
 > **"It's not just about extracting text; it's about reshaping ourselves through reading. Transform every yellowed, dusty book into a personalized arena for growth."**
 > 
-> **"重要的不仅是提取文字，而是我们在阅读中重塑自我。把每一本泛黄的旧书，变成只为你量身定制的成长场域。"**
+> **“重要的不仅是提取文字，而是我们在阅读中重塑自我。把每一本泛黄的旧书，变成只为你量身定制的成长场域。”**
 
 ---
 
-## 💡 The Origin Story: The Humanistic Core of a Tech Tool | 缘起与发心：科技工具背后的人文底色
+## 🧭 项目全局导航与主次层级矩阵 (Documentation Architecture)
 
-**(EN)** The inception of this project wasn't born out of purely geeky tech enthusiasm, but from a very specific, personal journey of growth. 
+本项目遵循**“单一事实源（Single Source of Truth）+ 主次分层统筹”**的架构原则。主 README 负责统领项目全景、哲学发心、端到端管线与核心技术资产；各子任务及深度研究模块通过下级专用文档承载：
 
-It began with a gift of insight: a friend, someone who believed in my growth, handed me *The Autobiography of Morris Chang* and urged me to read it. The life and business wisdom of this semiconductor titan is an invaluable treasure for any entrepreneur. Yet all I could find were 1980s-era, scanned PDFs in Traditional Chinese—blurry, poorly formatted, and exhausting to read. When we try to touch great souls and profound business experiences, we are often blocked by the "terrible medium."
-
-Going a step further, I didn't just want to read this Chinese biography comfortably. As an entrepreneur navigating today's global currents, I deeply desired to **learn authentic, modern business English expressions and collaborative logic** while absorbing this wisdom. I wanted a compound reading experience: a cross-temporal business dialogue, and an intensive English deep-dive to elevate my global perspective. 
-
-I am not a traditional "tech guy" writing code from scratch. But in this AI-empowered era, you don't have to be a top-tier hacker to build tools. **Professional experience and a sharp perception of life's pain points are the true wellsprings of innovation.** Leveraging my understanding of business scenarios, I decided to embrace AI and build my own "Private Library"—transforming cold, static PDFs into vibrant knowledge.
-
-And here lies the most beautiful loop: the book came to me as a gift of knowledge from a friend. So, once I have crafted this lighter, more exquisite reading experience, **I will give it back as a gift**—a reimagined edition of the very book that opened my eyes. Knowledge, passed from one person to another, returned in a richer form. This is a profoundly meaningful cycle of information, and the passing on of value.
-
-**(CN)** 这个项目的诞生，并非源于某次极客式的技术狂热，而是源于一份非常具体的、关于个人成长的真实经历。
-
-一切的起点，是一位朋友的馈赠。他把《张忠谋自传》递到我手中，郑重地推荐我读一读。这位半导体巨擘的人生与商业智慧，对任何创业者而言都是弥足珍贵的宝藏。然而，我能找到的只有 80 年代充满“年代感”、字迹模糊、段落粘连的繁体版 PDF。当我们试图去触碰那些伟大的灵魂和深邃的商业经验时，却常常被**“糟糕的载体”**拒之门外。
-
-更进一步，我不仅仅想舒服地看完这本中文传记。作为身处当前时代洪流中的创业者，我极度渴望在吸收这些商业智慧的同时，**能够学习并掌握地道的现代商业英文表达和协作逻辑**。我希望我的阅读是复合的：既是跨越时空的商业对话，也是提升国际化视野的英文精读。
-
-我不是一个传统意义上手写代码的 Tech Guy。但在如今这个 AI 赋能的时代，你不必非得是顶尖黑客才能创造工具。**专业经验和对生活痛点的感知，才是创新真正的源泉。** 凭借着对商业场景的理解与应用，我决定自己拥抱 AI，把冰冷的 PDF 变成一间属于我自己的“私人书房”。
-
-而这一切，最终指向一个最动人的闭环：**这本书，是朋友赠予我的知识礼物；当我把它重制为更轻便、更精致的读物，我愿将它作为一份新的礼物，回赠给那位带我认识这本书的人。** 知识从一个人流向另一个人，经我的双手重铸，以更丰盈的形态回归。这是一个非常有意义的信息的循环，和价值的传递。
-
----
-
-## 🎯 Our Philosophy: The Genesis and The Infinite Container | 我们的产品哲学：万物的源头与无界的内容容器
-
-**⚠️ Disclaimer: We do not provide or distribute any copyrighted eBook content. We open-source the *capability* to re-empower your knowledge (Bring Your Own Book).**
-
-When we look closely at how the world consumes premium content, a profound underlying truth emerges: **at their core, all high-level content—be it short dramas, immersive games, blockbuster movies, or interactive Web Apps—originates from the simplest form: text and story.**
-
-ReBook is not just a format converter; it is the infrastructure for a **Secondary Creation Engine (二创引擎).** We are penetrating to the genesis of content, extracting the most fundamental asset (the text), and leaving infinite room for imagination in its final output formats.
-
-1. **The Pure Origin (触达万物源头，提纯结构资产):** 
-   Technology shouldn't be a wall between humanity and books. By combining OCR engines with LLMs, we extract the dead pixels of old scans and forge them into a highly structured, pure digital asset. If text is the seed, we are giving you the purest DNA.
-
-2. **Bilingual Resonance (重构商业语境，升维双语学习):** 
-   Through curated Prompt Matrices, the LLM acts as your native editor, rewriting dated text into elegant, *Harvard Business Review*-style modern English. The paragraph-by-paragraph alignment elevates reading into an immersive language learning experience.
-
-3. **Infinite Fronts (二次创作引擎，释放无尽想象):** 
-   Once the textual origin is secured and structured, its potential becomes infinite. Because we possess the refined, structured text, it can seamlessly be transformed by AIGC into interactive HTMLs, Audiobooks, cinematic visual essays, or fully personalized micro-apps. The output formats are left with boundless imagination, because the source material is universally solid.
+```text
+ReadShift 知识与工程矩阵
+├── README.md (本项目总领 · 全景概览 / 哲学与发心 / 核心管线 / 资产矩阵)
+├── 执行手册.md (L1 全局标准作业程序 SOP · 质量门禁 / 内容契约 / 出版级 EPUB 标准)
+├── project.json (机器可读唯一事实源 · 章节边界 / 渲染映射 / 状态机)
+│
+├── docs/ (深度方法论与技术专题)
+│   ├── ARCHITECTURE_AND_METHODOLOGY.md (多层数据模型与大小模型协作论)
+│   ├── PROMPTS.md (Prompt 矩阵 · 客观基准线与艾萨克森/韩寒/余秋雨风格 DLC)
+│   ├── DESIGN_PLAN.md (排版美学与纸书设计系统 · Tschichold 黄金网格)
+│   └── LESSONS_LEARNED.md (全流程排坑与血泪教训总录)
+│
+├── 下册项目工作区/ (实战工作区 · 包含下册 L1 执行手册与 44 个分章资产)
+│   ├── 下册项目执行手册_L1.md
+│   └── 翻译任务提示词_给第三方Agent.md
+│
+├── 交付物/ (AIGC 衍生形态与二次加工研究)
+│   └── 产物罗列与分析.md (有声书/AI播客/精读讲义/图谱/短片全谱系分析)
+│
+└── showcases/ (视觉与产品重塑案例展示)
+    ├── 01-电子书排版视觉重塑案例/
+    └── 02-AIGC讲述：台积电张忠谋 · 传记时间线的平行世界/
+```
 
 ---
 
-## 🏗 Architecture & Methodology: The Tiered Orchestration | 架构与方法论：分层编排的智慧
+## 💡 缘起与发心：科技工具背后的人文底色 (The Origin Story)
 
-**(EN)** Since we are "Building in Public," we must not only open-source our ideas but also our **design methodology**. 
+这个项目的诞生，源于一份非常具体的、关于个人成长的真实经历。
 
-In the AI era, models will constantly grow stronger and cheaper, but there will always be a spectrum from the "highly advanced and expensive" to the "economical and efficient." It is a fundamental engineering and business insight to orchestrate them correctly—not just for cost, but for **structural elegance and system scalability**.
+一切的起点，是一位朋友的馈赠。他把《张忠谋自传》递到我手中，郑重地推荐我读一读。这位半导体巨擘的人生与商业智慧，对任何创业者而言都是弥足珍贵的宝藏。然而，我能找到的只有充满年代感、字迹模糊、段落粘连的繁体版扫描件。当我们试图去触碰那些伟大的灵魂和深邃的商业经验时，却常常被**“糟糕的载体”**拒之门外。
 
-We adopt a **Tiered Pipeline (大小模型分层协作机制)**:
-*   **The Blue-Collar Tier (“蓝领劳模层”):** We delegate the heavy lifting—OCR extraction, noise reduction, and basic formatting—to robust local tools or rapid, economical thin models. They process the massive, dirty data rapidly.
-*   **The Chief Editor Tier (“灵魂主编层”):** Only for the ultimate layer of value creation—contextual bilingual rewriting, stylistic translation, and deep knowledge extraction—do we engage the most advanced, high-IQ models. 
+更进一步，我不仅仅想舒服地看完这本中文传记。作为身处全球化浪潮中的创业者，我极度渴望在吸收这些商业智慧的同时，**能够学习并掌握地道的现代商业英文表达和协作逻辑**。我希望我的阅读是复合的：既是跨越时空的商业对话，也是提升国际化视野的英文精读。
 
-This is the essence of modern AI architecture: letting every model do what it does best.
+我不是一个传统意义上手写底层代码的黑客。但在如今这个 AI 赋能的时代，你不必非得是算法专家才能创造工具。**专业经验和对痛点的敏锐感知，才是创新真正的源泉。** 凭借对商业场景的理解与系统化思维，我决定拥抱 AI，把冰冷的 PDF 变成一间属于自己的“私人书房”。
 
-**(CN)** 既然是“公开构建（Build in Public）”，我们不仅要开源我们的代码和理念，更要开源我们的**设计方法与系统思考**。
-
-在架构设计上，我们将 AI 的使用做出了清晰的划分。未来的大模型一定会越来越强，成本也会越来越低。但在任何时代，永远都会存在“最顶尖昂贵的模型”与“经济普及的模型”。这绝不仅仅是为了省钱，而是关于**系统架构的优雅与合理性**。
-
-我们坚决避免“将所有任务一股脑抛给最强大模型”的暴力解法，而是精心设计了**“大小模型协作的分层管线 (Tiered Pipeline)”**：
-*   **“搬砖”劳模层：** 像 OCR 图片提取、错别字校对、繁简转换等基础数据清洗的“脏活累活”，全部交由本地开源工具或高并发的小参数量模型完成。它们快速、稳定。
-*   **“灵魂”主编层：** 而对于将中文重塑为《哈佛商业评论》体、实现段落级双语对齐排版、提炼高阶商业词汇卡片（Cheat Sheet）这类产生核心溢价的“二创能力”，我们保留给最高阶的大语言模型去完成。
-
-让天才去创造，让劳模去搬砖。这是 AI 工程时代，项目主理人必须具备的第一层方法论。
+而这一切，最终指向一个最动人的闭环：**这本书，是朋友赠予我的知识礼物；当我把它重制为更轻便、更精致的出版级读物，我愿将它作为一份新的礼物，回赠给那位带我认识这本书的人。** 知识从一个人流向另一个人，经双手重铸，以更丰盈的形态回归。这是一个有意义的信息循环，也是价值的温暖传递。
 
 ---
 
-## 🛠 Features Matrix | 核心功能矩阵
+## 🎯 产品定位与哲学：通用工具链与旗舰示范案例 (Core Positioning & Philosophy)
 
-* 🔍 **Contextual OCR Correction:** Uses tier-1 fast models to patch broken scans and typos, restoring the text to its pure original state.
-* 📖 **Bilingual Magic:** Precisely segments narrative and business discourse logic, generating side-by-side or top-bottom bilingual layouts without breaking your train of thought.
-* ✍️ **Style Prompt Matrix:** Built-in prompts for "Business Biography," "Academic Analysis," or "Modern Native," transforming foreign or dated text into contemporary, high-level expressions.
-* 🌐 **Dynamic Media Genesis:** Automatically leverages AI tools to inject contextual illustrations, structured mind maps, and interactive glossary hover-cards, turning passive reading into a dynamic knowledge exploration engine.
+> **⚠️ 核心定位声明**：  
+> **ReadShift 是一个通用、普适性的开源 AIGC 电子书重塑与二次创作工业级工具链（Bring Your Own Book）。**  
+> 本项目**不分发任何受版权保护的原书内容**。我们在仓库中构建的《张忠谋自传》（上/下册）全链路工程与衍生品，是用于在最严苛、最复杂的真实场景中**打磨、压测并验证这套通用工具链的“旗舰级参考示范案例（Flagship Showcase & Crucible）”**。
+> 
+> **我们的终极目标，是把这套“做书与二创”的通用能力交付给全球所有终身学习者与创作者——让任何人都能把可读性极差的泛黄旧 PDF/扫描件，重制为顶级的双语典藏应用与出版级电子书。**
+
+### 通用工具链的三大核心赋能支柱 (The 3 Pillars of General Capability)
+
+```text
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                     READSHIFT 通用能力：从任意旧书到无界多模态容器                      │
+├──────────────────────────┬──────────────────────────┬──────────────────────────────────┤
+│ 1. 结构提纯 (Genesis)     │ 2. 语境重构 (Resonance)   │ 3. 泛化分发 (Infinite Fronts)    │
+├──────────────────────────┼──────────────────────────┼──────────────────────────────────┤
+│ 任意老旧扫描/泛黄 PDF    │ 动态语域 Prompt 矩阵     │ 双生终极载体 + 多模态延伸        │
+│ ➔ OCR 粗洗 + 错别字校正 │ ➔ 艾萨克森/韩寒/海明威   │ ➔ 单文件全离线自包含 HTML 应用   │
+│ ➔ 结构化纯净 D1 Markdown │ ➔ 商业 CheatSheet 提纯   │ ➔ 出版级 EPUB 3.0 流式电子书     │
+│ ➔ 建立只读原始证据保护   │ ➔ 地道习语与语境自适应   │ ➔ 声音/播客/图谱/多模态二创母矿  │
+└──────────────────────────┴──────────────────────────┴──────────────────────────────────┘
+```
+
+1. **触达万物源头，提纯结构资产 (The Pure Origin)**  
+   一切高级内容形态（有声书、播客、视频解说、交互应用）在底层都源于最基础的文字与逻辑。ReadShift 提供了通用的 D0/D1/D2 三层数据治理标准，能够穿透任意老旧书籍的噪点，提纯出结构纯净、机器可读的 Markdown 核心数字资产。
+2. **语境自适应与动态语域平衡 (Context-Aware Bilingual Resonance)**  
+   内置开箱即用的“基准线 + 风格 DLC”提示词矩阵。无论是科技巨头传记、学术经典、商业案例还是文学作品，系统均能自适应匹配最契合的翻译与二创文风，兼顾严谨专业度与地道口语/俚语表达。
+3. **面向无限容器的出版级分发 (Universal Multi-Platform Publishing)**  
+   工具链输出的不是零碎散落的文件，而是具备极高工程确定性的标准出版物：
+   * **单文件自包含 HTML 应用**：内置原生两级目录、术语悬浮、全离线可用；
+   * **出版级 EPUB 3.0 电子书**：严格遵循国际 OCF 规范与 XML 严格解析门禁，双层双语目录索引，防翻页撕裂，完美适配 Apple Books、微信读书与各类墨水屏。
+
 
 ---
 
-## 🚀 Roadmap | 理想的航线
+## 🏗️ 核心系统架构与端到端管线 (Architecture & Pipeline)
 
-- [x] **Phase 1**: Establish the vision, the humanistic philosophy, and the "Text as Genesis" framework. (You are here)
-- [ ] **Phase 2 (MVP Core)**: Pierce the veil—cut a sample PDF page to validate AI's power to extract and synthesize chaotic data into structured Markdown.
-- [ ] **Phase 3 (AI Engine)**: Inject the soul—implement the LLM & Bilingual Prompt Matrix to perfect paragraph-level alignment and language reshaping.
-- [ ] **Phase 4 (Infinite Fronts)**: Craft the vessels—connect rendering engines to output baseline EPUBs, and design the killer interactive HTML format powered by auto-generated AI assets.
-- [ ] **Phase 5 (Connection)**: Lower the barrier—launch a foolproof toolset for global lifelong learners to craft their own experiences.
+ReadShift 采用**“三层数据模型（Three-Tier Data Model）”**与**“大小模型分层协作机制（Tiered Model Pipeline）”**：
+
+```text
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                             READSHIFT 端到端工业化管线                             │
+├──────────────────┬──────────────────┬──────────────────┬─────────────────────────┤
+│ 1. 证据与提纯层   │ 2. 语义重构与延伸 │ 3. 模板编译与封装 │ 4. 多端质检与出货        │
+├──────────────────┼──────────────────┼──────────────────┼─────────────────────────┤
+│ • D0 原始扫描/OCR│ • D1 人工编辑主源 │ • D2 交互 HTML   │ • QA Gate v3 自动化门禁 │
+│ • 繁简转换与去噪 │ • 艾萨克森双语重塑│ • EPUB 3.0 容器  │ • XML 实体严格断言      │
+│ • 结构化分块切片 │ • 商业 CheatSheet│ • 带书签精装 PDF │ • 跨端翻页防撕裂保护    │
+└──────────────────┴──────────────────┴──────────────────┴─────────────────────────┘
+```
+
+### 1. 三层数据规范
+* **D0 (`raw_source/`)**：只读原始证据层，永不修改。
+* **D1 (`source/*.md`)**：唯一人工编辑主源，所有翻译、校对、二创卡片均沉淀于此，作为二次创作的公共母矿。
+* **D2 (`output/`)**：由编译器自动生成的交付物，严禁手工修改 D2。
+
+### 2. 大小模型协作分工
+* **“搬砖”劳模层（Fast / Local Models）**：负责高并发 OCR 清洗、标点修复、繁简转码等机械劳动。
+* **“灵魂”主编层（High-IQ Models）**：负责传记文风重塑、修辞赏析点睛、商业语汇提炼等产生核心溢价的环节。
 
 ---
 
-## 🌍 Build in Public: A Call for Connection | 寻找共鸣：一场关于拥抱与链接的公开构建
+## 📚 衍生生态：出版级 EPUB 3.0 电子书标准 (EPUB Best Practices)
 
-**(EN)** A great product that transcends cycles is never just a pile of code; it is a **living, breathing, growing organism.** 
-Through "Build in Public," we operate this open-source project with the vision and structure of an agile startup:
-* **Product & Vision (CEO):** Holding the fundamental truth that *all premium content stems from text*, steering the project to ensure we capture the purest data origin while leaving the output formats infinitely open.
-* **R&D:** Relentlessly perfecting the extraction logic and the "Tiered Model Orchestration," exploring how new tech can push the boundaries of output formats.
-* **Marketing:** Telling the story behind the project, taking the philosophy of "knowledge reinvention" to global readers.
-* **Operations:** Fostering a global ecosystem where every Issue and PR is a collision of minds.
+为解决移动端（手机 / 墨水屏）阅读常见的问题，ReadShift 制定了行业级的 EPUB 编译规范：
 
-If you are someone who **loves reading, seeks continuous growth, and understands that piercing the underlying logic of content is the key to reinventing it**, this is where we connect. 
+1. **双层嵌套双语目录树（Two-Level Bilingual TOC）**：
+   在 `nav.xhtml`（EPUB 3）与 `toc.ncx`（EPUB 2）中深度索引到二级小节（`<h3>`），中英双语对照，支持阅读器原生目录一键直达。
+2. **全主题自适应底色**：
+   全局透明背景 + `rgba()` 轻量边线，完美适配阅读器的夜间模式、护眼绿与羊皮纸风格。
+3. **全链路防撕裂（Anti-Tearing）**：
+   为标题注入 `page-break-after: avoid`，为卡片、插画与表格注入 `page-break-inside: avoid`，彻底根除分页截断现象。
+4. **标准 OCF 两阶段物理封装**：
+   `mimetype` 零压缩置顶（`zip -X -0`）+ 资源目录递归压缩，彻底解决主流阅读器白屏与丢封面问题。
 
-**(CN)** 一个能够穿越周期的好产品，绝对不仅仅是一堆堆砌的代码，它是一个**有血有肉、持续生长的生命体**。
-我们在公开构建（Build in Public）的过程中，正以“敏捷创业团队”的编制和视角运作这个开源项目：
-* **Product & Vision (CEO)**：坚守“一切高级内容源于最简单的文字”这一底层认知。把创作的出口留出充分的想象空间。
-* **R&D (技术探索)**：死磕把杂乱数据提纯为准结构化数据，并用“大小模型协作机制”探索技术效能的边界。
-* **Marketing (传播与链接)**：讲述代码背后的故事，将这种重塑知识体系的理念与系统架构方法论一起，传递给全球同路人。
-* **Operations (社区与生态)**：建立一个无国界的正向场域，迎接每一次思维碰撞。
+---
 
-如果您也是一位**热爱阅读、持续进阶、并深知洞悉商业底层逻辑之魅力的同路人**，这便是我们链接的起点。欢迎您来到这里探讨、指正，或者 Fork 过去，重塑那部激荡过您的经典。
+## 🛠️ 核心工具链与快速上手 (Quick Start)
+
+### 核心工具矩阵（位于 `workdir/`）
+
+| 工具脚本 | 职责与功能 | 运行示例 |
+| :--- | :--- | :--- |
+| `render_html_v9.js` | **全书 HTML 编译器**：聚合多章 D1 资产，生成带双层交互目录的单文件 HTML | `node workdir/render_html_v9.js --chapters 1,2,3,4,5,6` |
+| `qa_gate_v3.py` | **多维自动化质检门禁**：检查标签闭合、实体安全、锚点可达性、中英双语结构 | `python3 workdir/qa_gate_v3.py --chapter 1` |
+| `pipeline_v6_deepseek.py` | **大模型双语翻译与知识提纯管线**：自动调用网关完成中英重构与卡片生成 | `python3 workdir/pipeline_v6_deepseek.py --chapter 1` |
+| `build_epub.py` | **出版级 EPUB 3.0 打包编译器**：按 OCF 规范生成高兼容性流式电子书 | `python3 workdir/build_epub.py` |
+
+---
+
+## 🌟 仓库目录全貌 (Repository Structure)
+
+```text
+20260812 ReadShift/
+├── README.md                          # [本项目] 总领概览、哲学发心与全景架构
+├── 执行手册.md                        # [核心SOP] L1 标准作业程序、门禁与 EPUB 规范
+├── project.json                       # [元数据] 机器可读事实源与章节状态机
+├── requirements.txt                   # Python 核心依赖清单
+├── package.json                       # Node.js 渲染引擎配置
+│
+├── docs/                              # 深入专题文档库
+│   ├── ARCHITECTURE_AND_METHODOLOGY.md
+│   ├── PROMPTS.md
+│   ├── DESIGN_PLAN.md
+│   └── LESSONS_LEARNED.md
+│
+├── src/                               # 渲染模板与静态设计资产
+│   ├── templates/ (EJS / XHTML 模板)
+│   └── assets/ (封面图、字体库、样式表)
+│
+├── workdir/                           # 核心生产脚本与编译器工作区
+│   ├── render_html_v9.js              # HTML 权威渲染引擎
+│   ├── qa_gate_v3.py                  # 自动化质量门禁
+│   ├── pipeline_v6_deepseek.py        # LLM 翻译与提纯管线
+│   ├── build_epub.py                  # EPUB 3.0 规范打包器
+│   └── archive_legacy/                # 历史实验脚本归档（隔离维护）
+│
+├── output/                            # 权威成书交付区
+│   ├── chapters/ (各章独立的 D0/D1/D2 工作区)
+│   └── Samples/ (一至六章全书合成 HTML 典藏版)
+│
+├── 下册项目工作区/                    # 下册工程推进区（包含 44 个分章资产）
+├── 交付物/                            # 衍生多模态产品研究（有声书/播客/图谱）
+├── showcases/                         # 视觉与设计重构成果展示
+└── archive/                           # 历史批次与过程脚本归档
+```
+
+---
+
+## 🤝 Build in Public · 寻找共鸣
 
 **The genesis is text; the potential is infinite.**  
 **源起于文本，想象于无限。**
-### 🌌 The Ultimate Vessel: ReadShift Desktop (终极内容容器)
 
-*The product output is no longer a disjointed set of files, but a single, self-contained interactive executable (Standalone App).*
-
-很多传统的阅读工具满足于生成一份 EPUB 或 PDF，但**“ReadShift 引擎”产出的，本质上是一个带有完整前端交互的独立微型网站（Micro-Site / Portable App）。**
-
-当我们彻底贯穿了那条“从老旧扫描图片 → 结构化资产 → LLM 双语交互提纯”的管道后，我们最终的交付形态是一个**极其轻量的自包含文件包。**
-在这个包里：
-1. **无需联网与服务器**：所有复杂的知识穿梭（例如跨章节的术语索引、点击弹出的 Alpine.js 动态人物图谱、随阅读进度而生长的知识外链窗），都在这个本地文件包的 HTML / JS 中离线执行。
-2. **极简分发 (The Portable ZIP)**：你甚至可以把它视作一个压缩包。无论你是发给朋友、上传网盘还是珍藏在本地，双击文件入口（如 `index.html`），任何操作系统自带的浏览器都能立刻为你展开一场极致体验的“离线数字展览展馆”。
-3. **向独立 App 的升维**：如果想更进一步，借助当下成熟的打包工具（如 Tauri、Electron 或 PWA 技术），只需一行代码，这个基于 Web 技术的压缩包，瞬间就能被封装成带独立图标、常驻于 Mac/Windows 上的专属桌面阅读 App。
-
-一切绚丽的呈现，皆因我们在流水线开端牢牢抓住了最纯粹的三层数据（原文、双语重塑、外挂知识抽屉）。
-
----
-
-## ⚡ Multi-Agent Cloud Pipeline Methodology | 云端多代理并行管线方法论
-
-**(EN)** For large-scale book processing (hundreds of pages with heavy OCR, image extraction, and multi-tier LLM rewrites), running serially on a single thread easily exhausts local resources and causes bottlenecks.
-
-We pioneered a **Cloud Multi-Agent Distributed Pipeline**:
-1. **Chunked Processing (分块并发):** The entire book (126 pages) is partitioned into N non-overlapping page range chunks (e.g., 1-30, 31-60, 61-90, 91-126).
-2. **Cloud Delegation (云端解耦):** Sub-agents are dispatched asynchronously to execution environments, keeping the local master lightweight and responsive.
-3. **Multi-Model Orchestration (双引擎协作):** Each chunk agent invokes **Gemini 3.6 Flash** for ultra-fast OCR noise reduction (Tier 1) and **Agnes 2.5 Flash** for Isaacson-style modern business English rewriting (Tier 2/3).
-4. **Incremental Auto-Assembly (增量全量装配):** Completed page chunks trigger `render_html_v6.js` in real-time, streaming new content into `output/preview_book.html`.
-
-**(CN)** 对于上百页规模的大型电子书二创（包含复杂的 OCR 粗洗、历史插图提取与多层 LLM 重塑），在本地单线程跑卷会大量消耗本地计算资源并拖慢交付速度。
-
-我们沉淀并开源了 **“云端多代理分布式管线 (Cloud Multi-Agent Distributed Pipeline)”** 方法论：
-1. **分块并发切片**：全书 126 页被自动分割为 4 个互不干扰的独占页码区间（1-30页、31-60页、61-90页、91-126页）。
-2. **本地与云端解耦**：调度 4 路云端子代理（Sub-agents）在后台宿主环境并行“开炮”，本地主进程保持轻量敏捷。
-3. **双免费引擎协同**：子代理同时调度 **Gemini 3.6 Flash** 秒级完成 Tier 1 文本粗洗与广告水印抹除，调度 **Agnes 2.5 Flash** 完成 Tier 2 艾萨克森风格的高阶商务英文重塑。
-4. **流式增量装配**：子代理每完成一页处理，即自动触发渲染脚本更新 `output/preview_book.html`，实现全量双语阅读 App 的流式装配。
+如果您也是一位**热爱阅读、持续进阶、并深知洞悉商业底层逻辑之魅力的同路人**，欢迎来到这里探讨、指正，或者 Fork 本项目，用 AI 重塑那部激荡过您的经典。
