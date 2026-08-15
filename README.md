@@ -7,6 +7,33 @@
 
 ---
 
+## ⚡ 核心能力入口：ReadShift Agent Skill (一键即插即用 AI 技能插件)
+
+> **🎯 开发者与创作者第一站 (Position #1)**：  
+> 如果你正在使用任何 AI Coding Agent（如 **ZCode / Claude Code / Codex / Cursor / OpenCode / AutoGPT**），你可以直接将本项目的 `Skill` 引入你的 Agent 工作区，一键获得全套出版级做书、双语精排、EPUB 3.0 编译与多模态二创能力！
+
+### 📦 技能一键安装与触发 (`skills/readshift/`)
+
+```bash
+# 方式 1：直接在支持 Skill 的 Agent 环境中调用内置指令
+/readshift
+
+# 方式 2：在终端使用统一 CLI 指令一键生产
+python3 cli/readshift.py init --book-name "我的重制读物"   # 初始化 D0/D1/D2 三层资产结构
+python3 cli/readshift.py build --input source/            # 编译为自包含交互 HTML 母版
+python3 cli/readshift.py epub --input source/             # 编译为出版级 EPUB 3.0 流式电子书
+python3 cli/readshift.py qa --html 私域产物/book.html     # 启动 14 项自动化质量审计门禁
+```
+
+| 核心技能指令 | 功能职责与底层调用 | 产出物标准 |
+| :--- | :--- | :--- |
+| **`/readshift build`** | 调用 `workdir/render_html_v9.js` 权威渲染引擎 | Tschichold 黄金比例、两级悬浮目录、双语章标题卡、零 CDN 单文件 HTML |
+| **`/readshift epub`** | 调用 `workdir/build_epub.py` 出版级电子书打包器 | OCF 两阶段封装、`mimetype` 零压缩置顶、两级双语目录树、防撕裂保护 |
+| **`/readshift qa`** | 调用 `workdir/qa_gate_v3.py` 多维质量门禁 | XML 严格语法断言、标签绝对闭合、目录锚点可达性、双语 1:1 结构合规 |
+| **`/readshift check`** | 调用 `docs/HEALTHCHECK.sh` 脚本 | 扫描 D1 Markdown 源料中的未闭合标签、占位符、多空行与孤立大标题 |
+
+---
+
 ## 🧭 项目全局导航与主次层级矩阵 (Documentation Architecture)
 
 本项目遵循**“单一事实源（Single Source of Truth）+ 主次分层统筹”**的架构原则。主 README 负责统领项目全景、哲学发心、端到端管线与核心技术资产；各子任务及深度研究模块通过下级专用文档承载：

@@ -1,66 +1,77 @@
 ---
 name: readshift
-description: ReadShift 杂志级双语电子书排版引擎与三维平行叙事工具包。支持从 Markdown 源料一键生成具备两级目录导航、双语章标题卡、二创卡片（Cheat Sheet/修辞赏析/背景知识延伸）的离线 HTML 电子书，并内嵌全量深层质量审计门禁 (QA Auditor v3.0)。
+description: ReadShift 出版级双语排版、EPUB 3.0 编译器与 AIGC 多模态文化再造通用技能插件。支持从 Markdown/OCR 源料一键生成具备两级目录导航、双语章标题卡、二创卡片（Cheat Sheet/修辞赏析/背景窗）的自包含离线 HTML 电子书，支持按国际 OCF 规范编译出版级 EPUB 3.0 流式电子书，并内嵌全量深层质量审计门禁 (QA Gate v3.0)。
 triggers:
   - "/readshift"
   - "readshift build"
+  - "readshift epub"
   - "readshift qa"
   - "readshift check"
   - "双语电子书排版"
+  - "出版级EPUB制作"
   - "平行叙事生成"
 ---
 
-# Skill: ReadShift 双语电子书排版与平行叙事引擎
+# ⚡ Skill: ReadShift 经典重塑与 AIGC 多模态内容再造通用引擎
 
-ReadShift 是一个将纯文本重塑为杂志级双语 HTML 电子书的开源排版引擎与 AIGC 平行叙事工具包。
-
-## 核心命令入口
-
-### 1. 初始化项目骨架 (`readshift init`)
-```bash
-python3 cli/readshift.py init --book-name "我的双语电子书"
-```
-自动建立规范的 D0/D1/D2 三层数据目录：
-- `raw_source/` (D0 原料)
-- `source/` (D1 编辑源)
-- `output/` (D2 编译产物)
-
-### 2. Markdown 编译为双语 HTML (`readshift build`)
-```bash
-python3 cli/readshift.py build --input source/ --output output/book.html
-```
-- 自动解析 `## ` 小节标题并注入双语副标题与两级目录导航。
-- 自动渲染三块式二创卡片：`Cheat Sheet · 商业语汇`、`语言与逻辑赏析`（`.rhetoric-note`）、`背景知识延伸`（`.knowledge-note`）。
-- 注入陶土橙边线、Baskerville 衬线英文字体与纸质暖调配色的 Tschichold 比例排版。
-
-### 3. 深层质量审计门禁 (`readshift qa`)
-```bash
-python3 cli/readshift.py qa --html output/book.html
-```
-启动基于 HTMLParser 的 14 项严格门禁检测：
-- 零转义泄露 (`[G1-01]`)
-- DIV/SPAN 标签绝对闭合 (`[G1-02/03]`)
-- 相邻与全局段落重复度检查 (`[G3-01..03]`)
-- 目录锚点可达性与完整性 (`[G4-01/02]`)
-- 二创卡片双语匹配与品牌统一 (`[G5/G6]`)
-
-### 4. D1 源料资产体检 (`readshift check`)
-```bash
-python3 cli/readshift.py check --source source/
-```
-扫描 MD 源文件中的未闭合标签、占位符、小节标题缺失英文与脏数据。
+`ReadShift` 是一个即插即用的 AI Agent 技能插件（Skill）。它赋予任何 Coding Agent（ZCode / Claude Code / Codex / Cursor / OpenCode / AutoGPT）以**工业级做书、双语精排、出版级 EPUB 编译与多模态二创**的强大能力。
 
 ---
 
-## 三维平行叙事方法论 (3D Parallel Narrative Engine)
+## 🛠️ 核心能力与命令入口
+
+### 1. 初始化项目骨架 (`readshift init`)
+```bash
+python3 cli/readshift.py init --book-name "我的重制读物"
+```
+自动建立规范的 D0/D1/D2 三层数据治理目录：
+* `raw_source/` (D0 只读原始证据)
+* `source/` (D1 纯净编辑主源)
+* `私域产物/` (D2 本地生成物)
+
+### 2. 编译自包含交互 HTML (`readshift build`)
+```bash
+# 单章编译
+node workdir/render_html_v9.js --chapter 1
+
+# 多章聚合成全书母版
+node workdir/render_html_v9.js --chapters 1,2,3,4,5,6
+```
+* 自动解析 `## ` 小节标题并注入两级目录随动高亮；
+* 渲染三块式二创卡片：`Cheat Sheet`、`修辞赏析`（`.rhetoric-note`）、`背景知识延伸`（`.knowledge-note`）；
+* 纸书纸感配色（`#faf8f3` + `#1c1917`）与 Tschichold 黄金比例排版，全离线单文件封装。
+
+### 3. 编译出版级 EPUB 3.0 电子书 (`readshift epub`)
+```bash
+python3 workdir/build_epub.py
+```
+* **双层双语目录树**：`nav.xhtml`（EPUB 3）与 `toc.ncx`（EPUB 2）深度嵌套二级小节；
+* **移动端防撕裂**：标题注入 `page-break-after: avoid`，卡片与插图注入 `page-break-inside: avoid`；
+* **全主题自适应**：底色全局透明，完美适配 Apple Books / 微信读书的夜间、羊皮纸与护眼绿模式；
+* **OCF 物理封装**：`mimetype` 零压缩置顶（`-0` 存储模式）+ XML 严格实体解析断言。
+
+### 4. 多维自动化质量审计门禁 (`readshift qa`)
+```bash
+python3 workdir/qa_gate_v3.py --chapter 1
+python3 workdir/qa_gate_v3.py --html 私域产物/Samples/全书母版.html
+```
+启动基于 HTMLParser 的 14 项严格门禁断言：
+* XML 实体与转义安全 (`[G1-01]`)
+* DIV / SPAN / Note 标签绝对闭合 (`[G1-02/03]`)
+* 目录锚点可达性与小节条目完整性 (`[G4-01/02]`)
+* 二创卡片结构与双语段落配对检查
+
+### 5. D1 源料资产健康体检 (`readshift check`)
+```bash
+bash docs/HEALTHCHECK.sh
+```
+扫描 D1 Markdown 文件中的未闭合标签、占位符、多空行与孤立大标题。
+
+---
+
+## 🎙️ AIGC 平行叙事与多模态衍生方法论
 
 利用 ReadShift 进行 100% 自主版权 AI 二创的黄金法则：
-
-1. **锚点 (The Anchor)**：以灵感母本的人物生平或重大事件为时间线坐标（如 1948 年上海）。
-2. **内圈交集 (First-Person ➔ Third-Person Observer)**：采用第三方旁白视角重新解读经典抉择时刻（不说“我做了什么”，而说“他在那一刻面对了什么”）。
-3. **外圈拓展 (The Era & Community)**：跳出传主个人视角，展开同时代的商业风云、科技突破（如集成电路的发明、英特尔三巨头）与社会大势。
-4. **两条主线**：
-   - 显性：商业精神（奋斗不息 · 寻找商机 · 拓宽能力边界）
-   - 隐性：跨文明之旅（学习 · 挑战 · 适应 · 自愈）
-5. **单集脚本 SOP**：
-   `开场钩子 ➔ 锚点立身 ➔ 内圈抉择 ➔ 外圈展开 ➔ 思想升华金句 ➔ 知识延伸卡 ➔ 下集预告`
+1. **锚点 (The Anchor)**：以灵感母本的时间线与历史事实为骨架；
+2. **第三人称视角重构**：跳出第一人称局限，以第三方客观旁白重述抉择时刻；
+3. **双轨广播级音频**：调用神经语音合成（Edge-TTS），生成中英双轨 MP3 广播剧与独立剧本。
