@@ -145,6 +145,11 @@ def audit_structure_and_escaping(report, html):
     report.add('FAIL' if span_o != span_c else 'OK', 'G1-03', 'SPAN标签闭合',
                f'span {span_o} vs {span_c} 不匹配' if span_o != span_c else f'span 完全对齐 ({span_o} 对)')
 
+    # [G1-04] 模型/工具泄漏与中间态标记检测
+    leakages = re.findall(r'(<longcat[^>]*>|longcat_arg_value|@@RNOTE\d+@@|__PROCESSED__)', html)
+    report.add('FAIL' if leakages else 'OK', 'G1-04', '模型与工具标记泄漏',
+               f'发现 {len(leakages)} 处未清理的模型/工具标记: {leakages[:2]}' if leakages else '0 处工具/模型中间态标记泄漏')
+
 
 # ═══════════════ G2 纯净度 ═══════════════
 def audit_purity(report, html):
@@ -197,6 +202,14 @@ def audit_duplication(report, html):
         a, b = norm_text(ps[k][0]), norm_text(ps[k + 1][0])
         if len(a) > 30 and len(b) > 30 and (a[:30] in b or b[:30] in a) and a != b:
             overlap.append((ps[k][0][:30], ps[k + 1][0][:30]))
+    report.add('WARN' if overlap else 'OK', 'G3-03', '相邻段落高度重合预警',
+               f'{len(overlap)} 处疑似重复: {overlap[:2]}' if overlap else '无异常段落重叠')
+
+    # [G3-04] 叠字与标点错乱检测（拦截类似 奖」。奖」。、。。、，， 等拼接瑕疵）
+    stutter_p = re.findall(r'([^\s\d]{2,10}[。！？\?!\.」”])\s*\1', html)
+    stutter_issues = len(stutter_p)
+    report.add('FAIL' if stutter_issues > 0 else 'OK', 'G3-04', '叠字错乱检测',
+               f'发现 {stutter_issues} 处叠字拼接错误: {stutter_p[:2]}' if stutter_issues > 0 else '0 处叠字错乱')
     report.add('WARN' if overlap else 'OK', 'G3-03', '相邻段落高度重合预警',
                f'{len(overlap)} 处疑似重复: {overlap[:2]}' if overlap else '无高度重合段落')
 

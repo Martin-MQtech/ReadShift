@@ -203,22 +203,23 @@
 
         /* 出版版权卡 */
         .title-page__copyright {
-            max-width: 30rem;
+            max-width: 38rem;
             margin: 3rem auto 0;
             border: 1px solid var(--rule);
             border-radius: 10px;
             padding: 1.6rem 2rem;
             text-align: left;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--ink-soft);
-            line-height: 2;
+            line-height: 2.1;
             background: #fdfcf8;
             box-shadow: 0 2px 12px rgba(28,25,23,0.04);
         }
         .title-page__copyright-row {
             display: flex;
             justify-content: space-between;
-            padding: 0.2rem 0;
+            align-items: center;
+            padding: 0.25rem 0;
             border-bottom: 1px dashed var(--rule);
         }
         .title-page__copyright-row:last-child {
@@ -231,11 +232,16 @@
             color: var(--ink-muted);
             white-space: nowrap;
             margin-right: 1.5rem;
+            flex-shrink: 0;
         }
         .title-page__copyright-value {
             text-align: right;
             font-weight: 600;
+            font-size: 0.82rem;
             color: var(--ink);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* ═══════════════════════════════════════════
@@ -1759,37 +1765,45 @@
 
     <!-- ═══════════════ 扉页 (Title Page + 出版版权卡) ═══════════════ -->
     <div class="title-page">
-        <p class="title-page__eyebrow">AI-Powered Reading Redefined</p>
+        <p class="title-page__eyebrow">ReadShift · 私人书房</p>
         <h1 class="title-page__title"><%= title %></h1>
         <p class="title-page__author">张忠谋 著</p>
-        <p class="title-page__author-en">Morris Chang · Autobiography, Volume One</p>
-        <div class="ornament">✦</div>
+        <p class="title-page__author-en"><%= typeof author_en !== 'undefined' ? author_en : (title.includes('下册') ? 'Morris Chang · Autobiography, Volume Two (1964–2018)' : 'Morris Chang · Autobiography, Volume One (1931–1964)') %></p>
+        <div class="ornament">✦ ─── ✦ ─── ✦</div>
 
-        <!-- 出版版权卡：完整的出版与版本信息 -->
+        <!-- 出版版权卡：动态呈现上下册各自真实的出版与版本信息 -->
         <div class="title-page__copyright">
             <div class="title-page__copyright-row">
                 <span class="title-page__copyright-label">全书作者</span>
-                <span class="title-page__copyright-value">张忠谋（著）</span>
+                <span class="title-page__copyright-value">张忠谋（Morris Chang）著</span>
             </div>
             <div class="title-page__copyright-row">
-                <span class="title-page__copyright-label">台湾版出版</span>
-                <span class="title-page__copyright-value">天下远见出版股份有限公司</span>
+                <span class="title-page__copyright-label">原著出版</span>
+                <span class="title-page__copyright-value">远见·天下文化出版股份有限公司</span>
             </div>
             <div class="title-page__copyright-row">
                 <span class="title-page__copyright-label">出版时间</span>
-                <span class="title-page__copyright-value">1998年2月 · 台北</span>
+                <span class="title-page__copyright-value"><%= title.includes('下册') ? '2024年11月第一版 · 台北' : '1998年2月第一版 · 台北' %></span>
             </div>
             <div class="title-page__copyright-row">
-                <span class="title-page__copyright-label">推荐序</span>
-                <span class="title-page__copyright-value">余秋雨 · 高希均</span>
+                <span class="title-page__copyright-label">原著书号</span>
+                <span class="title-page__copyright-value"><%= title.includes('下册') ? 'ISBN 9786263559714 / 9786263559707 · BCB865' : 'ISBN 957-621-447-1' %></span>
             </div>
             <div class="title-page__copyright-row">
                 <span class="title-page__copyright-label">本书结构</span>
-                <span class="title-page__copyright-value">自序 · 五章 · 附录 · 大事年表</span>
+                <span class="title-page__copyright-value"><%= title.includes('下册') ? '自序 · 德仪篇 · 台积电篇(一/二/三) · 感谢 · 附录 (45章)' : '自序 · 五章 · 附录 · 大事年表 (共6章)' %></span>
             </div>
             <div class="title-page__copyright-row">
                 <span class="title-page__copyright-label">涵盖时期</span>
-                <span class="title-page__copyright-value">1931 — 1964（出生至33岁）</span>
+                <span class="title-page__copyright-value"><%= title.includes('下册') ? '1964 — 2018（德仪时代至台积电退休）' : '1931 — 1964（出生至33岁）' %></span>
+            </div>
+            <div class="title-page__copyright-row">
+                <span class="title-page__copyright-label">双语重构</span>
+                <span class="title-page__copyright-value">ReadShift 深度二次创作引擎（艾萨克森文风）</span>
+            </div>
+            <div class="title-page__copyright-row">
+                <span class="title-page__copyright-label">制作声明</span>
+                <span class="title-page__copyright-value">私人研读与技术学习使用 · 严禁商用 · 请支持正版图书</span>
             </div>
         </div>
     </div>
@@ -1898,8 +1912,8 @@
                     list.appendChild(chapGroup);
                 }
 
-                // 1. 检查页面是否存在序言卡片（仅第一章包含序言）
-                <% if (chapter_num === '1' || multi_chapter) { %>
+                // 1. 检查页面是否存在序言卡片（仅在上册第一章或包含该锚点时渲染）
+                <% if ((chapter_num === '1' && !title.includes('下册')) || (typeof has_vol1_preface !== 'undefined' && has_vol1_preface)) { %>
                 var hasPref = document.getElementById('sec-yu-preface');
                 if (hasPref) {
                     var prefGroup = document.createElement('div');
